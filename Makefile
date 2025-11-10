@@ -24,10 +24,9 @@ all: $(NES)
 # NOTE: This should probably be a script or a tool.
 $(NES): $(BOOT)
 	printf "\x4e\x45\x53\x1a" > $@
-	printf "\x02" >> $@
+	printf "\x01" >> $@
 	printf "\x01" >> $@
 	printf "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00" >> $@
-	cat $(BOOT) >> $@
 	cat $(BOOT) >> $@
 	dd if=/dev/zero bs=8192 count=1 >> $@ 2>/dev/null
 
